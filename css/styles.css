@@ -1,13 +1,14 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  background-color: #4b4b4b;
+  background-color: #2b2b2b;
   margin: 0;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
+/* Contenedor principal */
 .container {
   width: 100%;
   max-width: 900px;
@@ -19,26 +20,21 @@ body {
 
 /* Estilos del header */
 header {
-  background: #393838;
+  background: #1e1e1e;
   color: white;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Permite que los elementos se ajusten cuando la pantalla se reduzca */
-  text-align: center;
 }
 
 /* Contenedor del encabezado */
 .header-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between; /* Distribuye los elementos */
   flex-wrap: wrap;
-  gap: 10px;
+  text-align: center;
 }
 
-/* Contenedor de texto del encabezado */
+/* Estilos del texto del encabezado */
 .header-text {
   display: flex;
   flex-direction: column;
@@ -46,7 +42,36 @@ header {
   gap: 5px;
 }
 
-/* Botón de cambio de idioma */
+#name {
+  color: #2ab4a6;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#lastname {
+  color: rgb(231, 231, 231);
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#career {
+  color: #2ab4a6;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Imagen de perfil */
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  border: 3px solid #2ab4a6;
+}
+
+/* Botón de cambiar idioma */
 #lang-toggle {
   background: transparent;
   color: white;
@@ -58,67 +83,17 @@ header {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Efecto hover del botón */
 #lang-toggle:hover {
   background: white;
   color: #2ab4a6;
 }
 
-/* Estilos de los textos */
-#name {
-  color: turquoise;
-  font-size: 30px;
-  font-weight: bold;
-  margin: 0;
-}
-
-#lastname {
-  color: rgb(231, 231, 231);
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-#career {
-  color: turquoise;
-  font-size: 20px;
-  font-weight: normal;
-  margin: 0;
-}
-
-/* Imagen de perfil */
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  border: 3px solid white;
-  margin-left: auto; /* Mueve la imagen a la derecha */
-}
-
-/* Cuando la pantalla sea más pequeña (menos de 600px) */
-@media screen and (max-width: 600px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header-text {
-    align-items: center;
-  }
-
-  #lang-toggle {
-    order: -1; /* Mueve el botón arriba del todo */
-  }
-
-  .profile-pic {
-    margin-left: 0; /* Evita que la imagen mantenga el margen en pantallas pequeñas */
-    margin-top: 10px; /* Da espacio a la imagen cuando baja */
-  }
-}
 /* Sección CV */
 #cv {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 /* Columna izquierda */
@@ -129,6 +104,9 @@ header {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  min-width: 280px;
+  flex: 1;
+  border-radius: 10px;
 }
 
 .left-column h2 {
@@ -148,41 +126,15 @@ header {
   font-size: 14px;
 }
 
-.contact-info {
-  text-align: center;
-  padding: 15px 0;
-  border: 2px solid white;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.contact-info p {
-  margin: 5px 0;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.social-links img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
-
-.social-links img:hover {
-  transform: scale(1.1);
-}
-
 /* Columna derecha */
 .right-column {
-  width: 65%;
+  width: 60%;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  min-width: 280px;
+  flex: 2;
+  border-radius: 10px;
 }
 
 .right-column h2 {
@@ -196,6 +148,39 @@ header {
 .right-column p {
   font-size: 14px;
   line-height: 1.5;
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 768px) {
+  /* Ajuste del header en pantallas pequeñas */
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Mueve el botón de cambiar idioma arriba */
+  #lang-toggle {
+    order: -1;
+    margin-bottom: 10px;
+  }
+
+  /* Ajusta el tamaño de la imagen */
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Ajuste de columnas: se apilan una sobre otra */
+  #cv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Animaciones */
@@ -239,6 +224,6 @@ header {
 .language-bar span {
   display: block;
   height: 100%;
-  background: #2ab4a6;
+  background: #207067;
   transition: width 1s ease-in-out;
 }
